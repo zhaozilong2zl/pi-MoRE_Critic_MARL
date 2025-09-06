@@ -137,7 +137,7 @@ if __name__=='__main__':
 
 
 
-    task = VmasTask.UAV_PERSUIT_EVASION_EARLY_TERMINATION.get_from_yaml()
+    task = VmasTask.UAV_PURSUIT_EVASION_EARLY_TERMINATION.get_from_yaml()
 
     task.config = {
         "max_steps": args.max_episode_len,

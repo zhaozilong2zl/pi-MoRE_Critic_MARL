@@ -1,11 +1,11 @@
 <!--
 Official Implementation of Tackling Early Termination in Multi-Agent Reinforcement Learning with Permutation Invariant Mixture of Residual Experts Critics
 -->
-Anonymous repository of manuscript Tackling Early Termination in Multi-Agent Reinforcement Learning with Permutation Invariant Mixture of Residual Experts Critics for double-blind review
+Anonymous repository for the manuscript "Tackling Early Termination in Multi-Agent Reinforcement Learning with Permutation Invariant Mixture of Residual Experts Critics" submitted for double-blind review
 
 # Algorithms
 1. Permutation-Invariant Mixture-of-Residual-Experts (pi-MoRE), our method
-2. Permutation-Invariant MAPPO (pi-MAPPO), our method exclude MoE mechanism
+2. Permutation-Invariant MAPPO (pi-MAPPO), our method without the MoE mechanism
 3. Multi-Agent POsthumous Credit Assignment (MA-POCA, For more details, please refer to: https://arxiv.org/abs/2111.05992)
 4. Multi-Actor-Attention-Critic (MAAC, For more details, please refer to: https://arxiv.org/abs/1810.02912)
 5. MAPPO (For more details, please refer to: https://arxiv.org/abs/2103.01955)
@@ -17,15 +17,15 @@ key parameters for our pi-MoRE algorithms:
 1. ```moe_type```: moe structure of algorithms, can be set to 'residual', 'vanilla', 'vanilla_sparse'
 2. ```gate_type```: gate mechanism of moe, can be set to 'quadratic', 'linear', 'mlp', 'one_hot'
 3. ```num_experts```: hyperparameter of all moe structure.
-4. ```num_cells```: list of the network cells of expert networks (each is a two hidden layer mlp). if moe_type is 'residual', the first 2 number is shared expert and others are sparse experts.
+4. ```num_cells```: list specifying the hidden layer sizes of expert networks (each expert is a two-hidden-layer MLP). if moe_type is set to 'residual', the first two numbers correspond to the shared expert, while the remaining ones correspond to the sparse experts.
 5. ```top_k```: hyperparameter of 'residual' and 'vanilla_sparse' structure
 
 # Environments
-The multi-UAV multi-target interception scenario used in our manuscript stored in repository directory ```./dependencies/VectorizedMultiAgentSimulator-inactive_logic/vmas/scenarios/mpe/uav_persuit_evasion_early_termination.py```.
+The multi-UAV multi-target interception scenario used in our experiments is stored in repository directory ```./dependencies/VectorizedMultiAgentSimulator-inactive_logic/vmas/scenarios/mpe/uav_pursuit_evasion_early_termination.py```.
 
 
 # Code organization
-The code is organized as follow:
+The code is organized as follows:
 ```
 1_main_results
 |--main.py
@@ -52,7 +52,7 @@ dependencies
     |--vmas
         |--scenarios
             |--mpe
-                |--uav_persuit_evasion_early_termination.py
+                |--uav_pursuit_evasion_early_termination.py
 diagnostic_experiment
 |--main_diagnostic_experiment.py
 |--partial_results
@@ -61,7 +61,7 @@ diagnostic_experiment
 
 
 # Recommend requirements
-We test the algorithms on: 
+We tested the algorithms on the following setup:
 ## OS Requirements   
 Linux: Ubuntu 20.04.1 (5.15.0-139-generic)   
 Driver Version: 535.216.01   
@@ -119,7 +119,7 @@ python main.py --algorithm [ALGO_NAME] --seed [SEED] --num_adversaries [NUM_ADV]
 *   `--algo [ALGO_NAME]`: Specifies the algorithm to use. (`pi-MoRE`, `pi-MAPPO`, `MAAC`, `MA-POCA`, `MAPPO`)
 *   `--seed [SEED]`: Specifies the training seed.
 *   `--num_adversaries [NUM_ADV]`: Specifies the number of pursuers.
-*   `--num_good_agents [NUM_GOOD]`: Specifies the number of evaders.(note that in our manuscripts, [NUM_ADV, NUM_GOOD] should in [3,2], [4,3] and [5,4])
+*   `--num_good_agents [NUM_GOOD]`: Specifies the number of evaders.(Note: in our manuscripts, we used [NUM_ADV, NUM_GOOD] $ \in $  {[3,2], [4,3], [5,4]})
 
 **Example**:
 If you want to test your own parameters, you can change the default parameters in main script and run or directly run following script in terminal:
@@ -173,7 +173,7 @@ Then run the provided bash:
 ```bash
 bash run_ablation_gate.sh
 ```
-This will sequentially run the 4 gating mechanism with seed = 0,1,2 and environment setting with [NUM_ADV, NUM_GOOD] = [3,2],[4,3],[5,4].
+This will sequentially run the 4 gating mechanisms with seed = 0,1,2 and environment setting with [NUM_ADV, NUM_GOOD] = [3,2],[4,3],[5,4].
 
 ## ablation 3: Top-K Routing
 If you want to directly run the main experiments in Section Experimental Results - D - 3), first run following cmd in root:
@@ -186,17 +186,3 @@ bash run_ablation_topk.sh
 ```
 This will sequentially run the 4 gating mechanism with seed = 0,1,2 and environment setting with [NUM_ADV, NUM_GOOD] = [3,2],[4,3],[5,4].
 
-
-
-
-<!--
-# Ciatation
--->
-
-
-<!-- 
-# Acknowledgement
-This repository is heavily based on [Benchmarl](https://github.com/facebookresearch/BenchMARL) and [VMAS](https://github.com/proroklab/VectorizedMultiAgentSimulator).     
-The diagnostic experiment is heavily inspired by MA-POCA [paper](https://arxiv.org/abs/2111.05992) and [code](https://github.com/Unity-Technologies/paper-ml-agents/tree/main/ma-poca).   
-The README.md format is heavily inspired by [this repository](https://github.com/CDM1619/Networked-MB-MARL)
--->

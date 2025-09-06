@@ -1,5 +1,5 @@
 defaults:
-  - vmas_UAV_persuit_evasion_early_termination_config
+  - vmas_UAV_pursuit_evasion_early_termination_config
   - _self_
 
 
