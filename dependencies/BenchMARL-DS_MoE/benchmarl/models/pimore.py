@@ -135,7 +135,7 @@ class MoREnet(nn.Module):
         self.in_features = in_features
         if self.gate_type in ["quadratic", "unbalance_expert"]:
             # implement refer to https://arxiv.org/abs/2410.11222
-            # each expert_i correspond to A_i ([in_features, in_features]) 和 c_i (scalar)
+            # each expert_i correspond to A_i ([in_features, in_features]) and c_i (scalar)
             self.quadratic_A_params = nn.ParameterList()
             for _ in range(num_experts):
                 param = nn.Parameter(torch.randn(self.in_features, self.in_features, device=self.device))

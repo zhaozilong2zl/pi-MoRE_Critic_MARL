@@ -7,5 +7,7 @@ This folder contains our official implementation of the Revised Average Task des
 
 Our original data are in the folder *partial_results*, you can run the main script (*main_diagnostic_experiment.py*) directly to reproduce our result shown in Fig. 2.
 
+![image](fig_2.png)
+
 If you want to get your own result, you can delete the folder *partial_results* and rerun the main script.
 

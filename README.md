@@ -1,6 +1,3 @@
-<!--
-Official Implementation of Tackling Early Termination in Multi-Agent Reinforcement Learning with Permutation Invariant Mixture of Residual Experts Critics
--->
 Anonymous repository for the manuscript "Tackling Early Termination in Multi-Agent Reinforcement Learning with Permutation Invariant Mixture of Residual Experts Critics" submitted for double-blind review
 
 # Algorithms
