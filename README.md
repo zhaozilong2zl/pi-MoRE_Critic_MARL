@@ -1,4 +1,4 @@
-Anonymous repository for the manuscript "Tackling Early Termination in Multi-Agent Reinforcement Learning with Permutation Invariant Mixture of Residual Experts Critics" submitted for double-blind review
+Anonymous repository for the manuscript "Permutation Invariant based Mixture of Experts Architecture for Multi-Agent Reinforcement Learning" submitted for double-blind review
 
 # Algorithms
 1. Permutation-Invariant Mixture-of-Residual-Experts (pi-MoRE), our method
